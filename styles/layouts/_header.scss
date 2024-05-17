@@ -1,0 +1,43 @@
+@import "/styles/base/typography";
+@import "/styles/base/colors";
+
+.navigation {
+  position: fixed;
+  width: 100%;
+  height: fit-content;
+  top: 0;
+  left: 0;
+}
+
+.navigation__list,
+.navigation__items,
+.navigation__logo,
+.navigation__actions {
+  display: flex;
+  align-items: center;
+}
+
+.navigation__list {
+  padding: 40px 375px;
+  justify-content: space-between;
+}
+
+.navigation__items,
+.navigation__actions {
+  gap: 30px;
+}
+.navigation__actions {
+  margin-left: 30px;
+}
+
+.navigation__item {
+  font-family: "Montserrat";
+  font-weight: 500;
+  color: $white;
+  @extend .text-xs;
+}
+.navigation__logo {
+  color: $white;
+  font-family: "Raleway";
+  font-size: 34px;
+}

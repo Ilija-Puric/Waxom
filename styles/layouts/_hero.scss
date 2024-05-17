@@ -1,0 +1,52 @@
+.hero {
+  background-image: url("/public/images/background.png");
+  height: 100vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero__title,
+.hero__subtitle {
+  color: $white;
+}
+
+.hero__title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Raleway";
+  span:first-of-type {
+    font-size: 36px;
+    font-weight: 500;
+  }
+  span:last-of-type {
+    @extend .text-xxl;
+  }
+}
+
+.hero__subtitle {
+  font-family: "Montserrat";
+  margin-bottom: 50px;
+  width: 100%;
+  text-align: center;
+  max-width: 562px;
+  @extend .text-sm;
+}
+
+.hero__button {
+  background-color: $main-dark;
+  border: none;
+  border-radius: 3px;
+  padding: 20px 40px;
+  font-family: "Raleway";
+  color: $white;
+  font-weight: 900;
+  border-bottom: 3px solid #736357;
+  @extend .text-xs;
+}
