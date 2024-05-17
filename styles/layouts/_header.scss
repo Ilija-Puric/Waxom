@@ -18,7 +18,9 @@
 }
 
 .navigation__list {
-  padding: 40px 375px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  @extend .container;
   justify-content: space-between;
 }
 
@@ -28,6 +30,13 @@
 }
 .navigation__actions {
   margin-left: 30px;
+  .navigation__item {
+    transition: transform 0.2s ease;
+    @include hover {
+      transform: scale(1.15);
+      cursor: pointer;
+    }
+  }
 }
 
 .navigation__item {
@@ -35,9 +44,17 @@
   font-weight: 500;
   color: $white;
   @extend .text-xs;
+  transition: color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  @include hover {
+    color: $main-light;
+  }
 }
 .navigation__logo {
   color: $white;
   font-family: "Raleway";
   font-size: 34px;
+  transition: color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  @include hover {
+    color: $main-light;
+  }
 }

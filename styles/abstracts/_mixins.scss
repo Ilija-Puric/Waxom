@@ -1,0 +1,34 @@
+@mixin mq($value, $constraint: max, $feature: width) {
+  @media screen and (#{$constraint}-#{$feature}: $value + px) {
+    @content;
+  }
+}
+
+@mixin font-smoothing($val: antialiased) {
+  -webkit-font-smoothing: $val;
+  -moz-font-smoothing: $val;
+  -ms-font-smoothing: $val;
+  -o-font-smoothing: $val;
+}
+
+@mixin hover {
+  // hover can be none or hover, pointer can be none (keyboard), coarse (finger on touchscreen) or fine (mouse cursor)
+  // any means that the browser can have multiple input mechanisms, and is true if any of them has something that we are looking for
+  @media (any-hover: hover) and (any-pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin landscape {
+  @media screen and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin no-reduced-motion {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}

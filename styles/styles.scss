@@ -1,5 +1,8 @@
 @import "abstracts/fonts";
+@import "abstracts/mixins";
 @import "base/reset";
+@import "base/utils";
+@import "base/breakpoints";
 @import "layouts/header";
 @import "layouts/hero";
 
