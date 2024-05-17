@@ -1,4 +1,8 @@
 .container {
   padding-left: 375px;
   padding-right: 375px;
+  @include mq(1750) {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
 }

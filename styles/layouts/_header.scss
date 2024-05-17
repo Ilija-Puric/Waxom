@@ -29,7 +29,6 @@
   gap: 30px;
 }
 .navigation__actions {
-  margin-left: 30px;
   .navigation__item {
     transition: transform 0.2s ease;
     @include hover {
@@ -38,17 +37,25 @@
     }
   }
 }
-
-.navigation__item {
-  font-family: "Montserrat";
-  font-weight: 500;
-  color: $white;
-  @extend .text-xs;
-  transition: color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  @include hover {
-    color: $main-light;
+.navigation__items {
+  .navigation__item {
+    font-family: "Montserrat";
+    font-weight: 500;
+    color: $white;
+    @extend .text-xs;
+    transition: color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    @include hover {
+      color: $main-light;
+    }
+  }
+  .navigation__actions {
+    margin-left: 30px;
+  }
+  @include mq(1220) {
+    display: none;
   }
 }
+
 .navigation__logo {
   color: $white;
   font-family: "Raleway";
@@ -56,5 +63,73 @@
   transition: color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   @include hover {
     color: $main-light;
+  }
+}
+
+.navigation__drawer {
+  display: none;
+  padding: 40px;
+  background-color: $main-dark;
+  @include mq(1220) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 65vw;
+    gap: 20px;
+    transform: translateX(-100%);
+  }
+
+  .navigation__item {
+    font-family: "Montserrat";
+    font-weight: 500;
+    color: $white;
+    @extend .text-lg;
+    width: fit-content;
+    transition: color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    @include hover {
+      color: $main-light;
+    }
+  }
+  .navigation__elements {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.hamburger {
+  width: 40px;
+  height: 25px;
+  display: none;
+  @include mq(1220) {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  div {
+    height: 4px;
+    width: 100%;
+    background-color: $white;
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  div:nth-child(1) {
+    transform-origin: left;
+  }
+  div:nth-child(3) {
+    transform-origin: right;
+  }
+  @include hover {
+    cursor: pointer;
+  }
+}
+
+.hamburger.open {
+  div:nth-child(1),
+  div:nth-child(3) {
+    transform: scaleX(0.5);
   }
 }
