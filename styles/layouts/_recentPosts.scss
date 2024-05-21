@@ -1,0 +1,45 @@
+.posts {
+  .grid__item {
+    position: relative;
+  }
+  .item__title {
+    color: #555555;
+  }
+  .item__category {
+    color: #8c8c8c;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: $main-light;
+    font-family: "Montserrat";
+    font-weight: 500;
+    margin-top: 20px;
+    // margin-top: 30px; this should be the value
+  }
+
+  .item__date {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: $white;
+    font-family: "Montserrat";
+
+    .item__date-value {
+      background-color: #363636;
+      @extend .text-md;
+      font-weight: 500;
+      border-radius: 3px 3px 0 0;
+      padding: 0 9px;
+    }
+    .item__date-month {
+      background-color: #252525;
+      font-weight: 300;
+      padding: 0 9px;
+      border-radius: 0 0 3px 3px;
+      @extend .text-xs;
+    }
+  }
+}

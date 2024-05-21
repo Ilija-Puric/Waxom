@@ -4,6 +4,12 @@
   padding-bottom: 60px;
   height: 100%;
 
+  .banner__item {
+    @include hover {
+      cursor: crosshair;
+    }
+  }
+
   i {
     font-size: 48px;
     color: $main-light;

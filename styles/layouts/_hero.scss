@@ -73,24 +73,6 @@
   @extend .text-sm;
 }
 
-.button--main {
-  background-color: $main-dark;
-  border: none;
-  border-radius: 3px;
-  width: 170px;
-  height: 53px;
-  font-family: "Raleway";
-  color: $white;
-  font-weight: 900;
-  border-bottom: 3px solid #736357;
-  @extend .text-xs;
-  transition: background-color 0.25s cubic-bezier(0.23, 1, 0.32, 1);
-  @include hover {
-    background-color: $main-light;
-    cursor: pointer;
-  }
-}
-
 .swiper-button-next,
 .swiper-button-prev {
   color: #d3c1ad !important;
