@@ -1,0 +1,65 @@
+.services {
+  padding-top: 92px;
+  padding-bottom: 80px;
+  @extend .container;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.services__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 266px;
+
+  .card__title {
+    font-family: "Raleway";
+    font-weight: 600;
+    color: #555555;
+    @extend .text-md;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    transition: color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .card__subtitle {
+    font-family: "Montserrat";
+    color: #8c8c8c;
+    @extend .text-xs;
+  }
+  .card__line {
+    margin-top: 30px;
+    width: 70px;
+    height: 3px;
+    background-color: #f1eee9;
+    position: relative;
+    &::before {
+      content: "";
+      display: block;
+      background-color: $main-light;
+      width: 100%;
+      height: 3px;
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+  }
+
+  @include hover {
+    cursor: crosshair;
+    .card__line::before {
+      transform: scaleX(1);
+    }
+    .card__title {
+      color: $main-light;
+    }
+  }
+}
