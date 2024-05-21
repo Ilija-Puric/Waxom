@@ -17,6 +17,12 @@
   text-align: center;
   width: 266px;
 
+  i {
+    font-size: 43px;
+    color: #555555;
+    transition: color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
   .card__title {
     font-family: "Raleway";
     font-weight: 600;
@@ -59,6 +65,9 @@
       transform: scaleX(1);
     }
     .card__title {
+      color: $main-light;
+    }
+    i {
       color: $main-light;
     }
   }
