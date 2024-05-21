@@ -10,7 +10,7 @@
   text-align: center;
   @extend .container;
 
-  .about__title {
+  .section-title {
     font-family: "Raleway";
     font-weight: 600;
     @extend .text-lg;
@@ -18,7 +18,7 @@
     color: #555555;
   }
 
-  .about__text {
+  .section-subtitle {
     font-family: "Montserrat";
     margin-bottom: 40px;
     color: #8c8c8c;
