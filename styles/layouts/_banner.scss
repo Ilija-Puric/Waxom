@@ -1,0 +1,27 @@
+.banner {
+  height: 150px;
+  width: 100%;
+  margin-bottom: 81px;
+  background: $gradient;
+  display: flex;
+  @extend .container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.banner__title {
+  font-family: "Raleway";
+  font-size: 28px;
+  color: $white;
+  span {
+    color: $main-light;
+  }
+}
+
+.banner__text {
+  font-family: Montserrat;
+  color: #615855;
+  font-weight: 500;
+  font-size: 18px;
+}
