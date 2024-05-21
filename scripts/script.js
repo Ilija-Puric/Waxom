@@ -1,5 +1,10 @@
 import "../styles/styles.scss";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import gsap from "gsap";
+import Swiper from "swiper";
+import { Navigation, Pagination } from "swiper/modules";
 
 const hamburger = document.querySelector(".js-hamburger");
 const drawer = document.querySelector(".js-drawer");
@@ -28,3 +33,17 @@ const menuToggle = () => {
   }
 };
 hamburger.addEventListener("click", menuToggle);
+
+// Swipper
+const swiper = new Swiper(".swiper", {
+  modules: [Navigation, Pagination],
+  direction: "horizontal",
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
