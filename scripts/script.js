@@ -57,11 +57,10 @@ const swiperPosts = new Swiper(".postsSwiper", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+  allowTouchMove: false,
   slidesPerView: 3,
   spaceBetween: 30,
 });
-
-console.log(swiperPosts);
 
 // Video playing
 
@@ -100,19 +99,24 @@ loadedProjects.forEach((project) => {
   const camelCaseCategory = camelCase(project.category);
   project.category = camelCaseCategory;
 });
-loadedProjects.forEach(
-  (project) =>
-    (projectsHTML += `
-      <div class="projects__item grid__item" data-category="${project.category}">
-      <img class="item__image" src="${project.image}" alt="${project.name}">
-      <div class="item__wrapper">
-        <div class="item__triangle" style="clip-path: polygon(50% 70%, 0% 100%, 100% 100%);"></div>
-        <p class="item__title">${project.name}</p>
-        <p class="item__category">${project.category}</p>
-      </div>
-    </div>
-  `)
-);
+
+const getProjectHTML = (project) => {
+  return `
+  <div class="projects__item grid__item" data-category="${project.category}">
+  <img class="item__image" src="${project.image}" alt="${project.name}">
+  <div class="item__controls">
+    <div class="item__link"><i class="fa fa-link"></i></div>
+    <div class="item__view"><i class="fa fa-eye"></i></div>
+  </div>
+  <div class="item__wrapper">
+    <div class="item__triangle" style="clip-path: polygon(50% 70%, 0% 100%, 100% 100%);"></div>
+    <p class="item__title">${project.name}</p>
+    <p class="item__category">${project.category}</p>
+  </div>
+  </div>
+  `;
+};
+loadedProjects.forEach((project) => (projectsHTML += getProjectHTML(project)));
 projectsList.innerHTML = projectsHTML;
 
 const handleLoadItems = () => {
@@ -124,19 +128,7 @@ const handleLoadItems = () => {
   });
 
   loadedProjects.push(...projectsLoding);
-  projectsLoding.forEach(
-    (project) =>
-      (projectsHTML += `
-        <div class="projects__item grid__item" data-category="${project.category}">
-        <img class="item__image" src="${project.image}" alt="${project.name}">
-        <div class="item__wrapper">
-          <div class="item__triangle" style="clip-path: polygon(50% 70%, 0% 100%, 100% 100%);"></div>
-          <p class="item__title">${project.name}</p>
-          <p class="item__category">${project.category}</p>
-        </div>
-      </div>
-    `)
-  );
+  projectsLoding.forEach((project) => (projectsHTML += getProjectHTML(project)));
   projectsList.insertAdjacentHTML("beforeend", projectsHTML);
   loadMoreBtn.removeEventListener("click", handleLoadItems);
   loadMoreBtn.remove();
@@ -166,19 +158,7 @@ radioBtns.forEach((radioBtn) => {
       matchedProjects = loadedProjects;
     }
     let projectsHTML = ``;
-    matchedProjects.forEach(
-      (project) =>
-        (projectsHTML += `
-          <div class="projects__item grid__item" data-category="${project.category}">
-          <img class="item__image" src="${project.image}" alt="${project.name}">
-          <div class="item__wrapper">
-            <div class="item__triangle" style="clip-path: polygon(50% 70%, 0% 100%, 100% 100%);"></div>
-            <p class="item__title">${project.name}</p>
-            <p class="item__category">${project.category}</p>
-          </div>
-        </div>
-      `)
-    );
+    matchedProjects.forEach((project) => (projectsHTML += getProjectHTML(project)));
     projectsList.innerHTML = projectsHTML;
   });
 });
