@@ -15,7 +15,6 @@
 
 .navigation__list,
 .navigation__items,
-.navigation__logo,
 .navigation__actions {
   display: flex;
   align-items: center;
@@ -57,16 +56,6 @@
   }
   @include mq(1220) {
     display: none;
-  }
-}
-
-.navigation__logo {
-  color: $white;
-  font-family: "Raleway";
-  font-size: 34px;
-  transition: color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  @include hover {
-    color: $main-light;
   }
 }
 
