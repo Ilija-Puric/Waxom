@@ -5,6 +5,7 @@ import "swiper/css/pagination";
 import gsap from "gsap";
 import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
+import { projects } from "./data";
 
 const hamburger = document.querySelector(".js-hamburger");
 const drawer = document.querySelector(".js-drawer");
@@ -87,4 +88,97 @@ videoElement.addEventListener("timeupdate", () => {
   const seconds = Math.floor(currentTime % 60);
   const formattedTime = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
   videoTimeElement.textContent = formattedTime;
+});
+
+// Mock requests
+const projectsList = document.querySelector(".projects__items");
+const loadMoreBtn = document.querySelector("#load-btn");
+let projectsHTML = ``;
+
+const loadedProjects = projects.slice(0, 6);
+loadedProjects.forEach((project) => {
+  const camelCaseCategory = camelCase(project.category);
+  project.category = camelCaseCategory;
+});
+loadedProjects.forEach(
+  (project) =>
+    (projectsHTML += `
+      <div class="projects__item grid__item" data-category="${project.category}">
+      <img class="item__image" src="${project.image}" alt="${project.name}">
+      <div class="item__wrapper">
+        <div class="item__triangle" style="clip-path: polygon(50% 70%, 0% 100%, 100% 100%);"></div>
+        <p class="item__title">${project.name}</p>
+        <p class="item__category">${project.category}</p>
+      </div>
+    </div>
+  `)
+);
+projectsList.innerHTML = projectsHTML;
+
+const handleLoadItems = () => {
+  projectsHTML = ``;
+  let projectsLoding = projects.slice(6, projects.length);
+  projectsLoding.forEach((project) => {
+    const camelCaseCategory = camelCase(project.category);
+    project.category = camelCaseCategory;
+  });
+
+  loadedProjects.push(...projectsLoding);
+  projectsLoding.forEach(
+    (project) =>
+      (projectsHTML += `
+        <div class="projects__item grid__item" data-category="${project.category}">
+        <img class="item__image" src="${project.image}" alt="${project.name}">
+        <div class="item__wrapper">
+          <div class="item__triangle" style="clip-path: polygon(50% 70%, 0% 100%, 100% 100%);"></div>
+          <p class="item__title">${project.name}</p>
+          <p class="item__category">${project.category}</p>
+        </div>
+      </div>
+    `)
+  );
+  projectsList.insertAdjacentHTML("beforeend", projectsHTML);
+  loadMoreBtn.removeEventListener("click", handleLoadItems);
+  loadMoreBtn.remove();
+};
+loadMoreBtn.addEventListener("click", handleLoadItems);
+
+//Handle Search
+const radioBtns = document.querySelectorAll("input[type='radio'");
+console.log(radioBtns);
+
+function camelCase(str) {
+  return str
+    .split(" ")
+    .map((word, index) =>
+      index === 0 ? word.toLowerCase() : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+    )
+    .join("");
+}
+
+radioBtns.forEach((radioBtn) => {
+  radioBtn.addEventListener("click", (e) => {
+    const { id } = e.target;
+    let matchedProjects = loadedProjects.filter((project) => project.category === id);
+    console.log(id);
+    console.log(matchedProjects);
+    if (id === "all") {
+      matchedProjects = loadedProjects;
+    }
+    let projectsHTML = ``;
+    matchedProjects.forEach(
+      (project) =>
+        (projectsHTML += `
+          <div class="projects__item grid__item" data-category="${project.category}">
+          <img class="item__image" src="${project.image}" alt="${project.name}">
+          <div class="item__wrapper">
+            <div class="item__triangle" style="clip-path: polygon(50% 70%, 0% 100%, 100% 100%);"></div>
+            <p class="item__title">${project.name}</p>
+            <p class="item__category">${project.category}</p>
+          </div>
+        </div>
+      `)
+    );
+    projectsList.innerHTML = projectsHTML;
+  });
 });
