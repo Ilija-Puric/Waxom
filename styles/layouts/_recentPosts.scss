@@ -1,4 +1,6 @@
 .posts {
+  margin-bottom: 142px;
+  position: relative;
   .grid__item {
     position: relative;
   }
@@ -8,7 +10,6 @@
   .item__category {
     color: #8c8c8c;
   }
-
   a {
     display: flex;
     align-items: center;
@@ -19,7 +20,6 @@
     margin-top: 20px;
     // margin-top: 30px; this should be the value
   }
-
   .item__date {
     position: absolute;
     top: 20px;
@@ -40,6 +40,95 @@
       padding: 0 9px;
       border-radius: 0 0 3px 3px;
       @extend .text-xs;
+    }
+  }
+  .postsSwiper {
+    width: 100%;
+    height: fit-content;
+  }
+  .posts__item {
+    height: fit-content;
+    width: 100%;
+  }
+  .item__image {
+    width: 100%;
+    height: 237px;
+    object-fit: cover;
+  }
+  .item__wrapper {
+    background-color: #fbfaf8;
+    padding: 30px 29px 27px 29px;
+    position: relative;
+    width: 100%;
+  }
+  .item__title {
+    font-family: "Raleway";
+    color: $main-light;
+    font-weight: 600;
+    margin-bottom: 10px;
+    // margin-bottom: 20px; this should be the value...
+    @extend .text-md;
+  }
+  .item__category {
+    font-family: "Montserrat";
+    font-weight: 500;
+    @extend .text-xs;
+  }
+  .swiper-slide {
+    padding: 0;
+  }
+  .swiper-wrapper,
+  .swiper {
+    position: static;
+  }
+  .swiper-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    gap: 8px;
+    width: 100%;
+    height: 22px;
+    z-index: 25;
+    bottom: -80px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: static !important;
+    width: 22px !important;
+    height: 22px !important;
+    border: 2px solid #d7d7d7;
+    border-radius: 50%;
+    transition: 0.2s border-color ease;
+    i {
+      color: #d7d7d7;
+    }
+    @include hover {
+      border-color: $main-light;
+      i {
+        color: $main-light;
+        transition: 0.2s color ease;
+      }
+    }
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    content: "";
+  }
+
+  .swiper-slide-next {
+    .item__image {
+      filter: brightness(0.5);
+    }
+    .item__wrapper {
+      background-color: #362f2d;
+      .item__category {
+        color: $white;
+      }
     }
   }
 }

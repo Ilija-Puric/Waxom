@@ -48,6 +48,20 @@ const swiper = new Swiper(".swiper", {
   },
 });
 
+const swiperPosts = new Swiper(".postsSwiper", {
+  modules: [Navigation],
+  direction: "horizontal",
+  loop: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  slidesPerView: 3,
+  spaceBetween: 30,
+});
+
+console.log(swiperPosts);
+
 // Video playing
 
 const videoElement = document.querySelector("video");
