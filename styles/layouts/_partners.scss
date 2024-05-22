@@ -1,0 +1,52 @@
+.partners {
+  height: 490px;
+  width: 100%;
+  background-image: url("../../public/images/partners-bg.png");
+  @extend .container;
+}
+
+// Animation
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-210px * 4 - 90px * 4));
+  }
+}
+
+.slider {
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  .slide-track {
+    animation: scroll 12s linear infinite;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+    width: calc(90px * 8 + 210px * 8);
+
+    @include hover {
+      animation-play-state: paused;
+    }
+  }
+
+  .slide {
+    height: auto;
+    width: 210px;
+    transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    img {
+      height: 100%;
+      width: 100%;
+    }
+    @include hover {
+      transform: scale(1.15);
+      cursor: pointer;
+    }
+  }
+}
