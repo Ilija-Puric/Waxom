@@ -1,0 +1,43 @@
+.footer {
+  height: 111px;
+  background-color: $footer-dark;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @extend .container;
+
+  .footer__section {
+    display: flex;
+    gap: 26px;
+    .footer__text:last-child {
+      &::after {
+        display: none;
+      }
+    }
+  }
+  .footer__text {
+    height: fit-content;
+    color: #555555;
+    font-family: "Montserrat";
+    font-weight: 500;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      right: -13px;
+      top: 6px;
+      height: 13px;
+      width: 1px;
+      background-color: #252525;
+    }
+    a {
+      color: #959595;
+    }
+  }
+  a {
+    transition: color 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+    @include hover {
+      color: $main-light;
+    }
+  }
+}
