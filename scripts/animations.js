@@ -1,4 +1,5 @@
 import gsap from "gsap";
+import Lenis from "lenis";
 import { ScrollTrigger } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -98,7 +99,7 @@ const handleProjects = () => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".projects",
-      start: "top 50%",
+      start: "top 75%",
       end: "center center",
       scrub: 1,
     },
@@ -111,6 +112,7 @@ const handleProjects = () => {
   }).from(".projects__chip", {
     opacity: 0,
     autoAlpha: 0,
+    stagger: 0.05,
   });
 };
 const handleVideo = () => {
@@ -222,6 +224,15 @@ const handleFooter = () => {
   }).from(".footer__text", { opacity: 0, autoAlpha: 0, y: 20 });
 };
 
+const handleSmoothScroll = () => {
+  const lenis = new Lenis();
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+};
+
 export const setAnimations = () => {
   handleDrawer();
   handleServices();
@@ -233,4 +244,5 @@ export const setAnimations = () => {
   handlePosts();
   handleSponsors();
   handleFooter();
+  handleSmoothScroll();
 };
