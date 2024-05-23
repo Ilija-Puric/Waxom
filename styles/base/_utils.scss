@@ -122,3 +122,10 @@
   width: fit-content;
   overflow: hidden;
 }
+
+.disable-scroll {
+  overflow-y: hidden;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}

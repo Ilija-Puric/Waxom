@@ -233,6 +233,36 @@ const handleSmoothScroll = () => {
   requestAnimationFrame(raf);
 };
 
+const handlePageLoad = () => {
+  document.body.classList.add("disable-scroll");
+  document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+      const tl = gsap.timeline({
+        onComplete: () => {
+          document.body.classList.remove("disable-scroll");
+        },
+      });
+      tl.to(".progress", {
+        duration: 1,
+        width: "100%",
+        ease: "power1.inOut",
+      });
+      tl.to(".progress", {
+        duration: 1,
+        height: "100%",
+        width: "100%",
+        ease: "power1.inOut",
+      });
+      tl.to(".page__loader", {
+        yPercent: -100,
+        backgroundColor: "transparent",
+      });
+    },
+    false
+  );
+};
+
 export const setAnimations = () => {
   handleDrawer();
   handleServices();
@@ -245,4 +275,5 @@ export const setAnimations = () => {
   handleSponsors();
   handleFooter();
   handleSmoothScroll();
+  handlePageLoad();
 };
