@@ -5,69 +5,74 @@
   margin-top: 80px;
   margin-bottom: 80px;
   position: relative;
-}
 
-.video-container {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  video {
+  .video-container {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
-}
 
-.video__content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  max-width: 555px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: $white;
-  text-align: center;
-  gap: 20px;
-  padding: 0 30px;
-  .video__title {
-    font-family: "Raleway";
-    font-weight: 700;
-    @extend .text-lg;
-  }
-  .video__subtitle {
-    font-family: "Montserrat";
-    @extend .text-sm;
-  }
-  .video__time {
-    font-family: "Montserrat";
-    color: $main-light;
-    font-weight: 500;
-    @extend .text-xs;
-  }
-}
-.video-control {
-  border: none;
-  background-color: rgba(#000000, 0.2);
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-bottom: 44px;
-
-  i {
+  .video__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 555px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: $white;
-    @extend .text-lg;
+    text-align: center;
+    gap: 20px;
+    padding: 0 30px;
+    .video__title {
+      font-family: "Raleway";
+      font-weight: 700;
+      @extend .text-lg;
+    }
+    .video__subtitle {
+      font-family: "Montserrat";
+      @extend .text-sm;
+    }
+    .video__time {
+      font-family: "Montserrat";
+      color: $main-light;
+      font-weight: 500;
+      @extend .text-xs;
+    }
   }
-  @include hover {
-    cursor: pointer;
-  }
-}
+  .video-control {
+    border: none;
+    background-color: rgba(#000000, 0.2);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 44px;
 
-.video-control:not(.playing) .video-control-pause,
-.video-control.playing .video-control-play {
-  display: none;
+    i {
+      color: $white;
+      @extend .text-lg;
+    }
+    @include hover {
+      cursor: pointer;
+    }
+  }
+
+  .video-control:not(.playing) .video-control-pause,
+  .video-control.playing .video-control-play {
+    display: none;
+  }
+
+  @include mq($tablet) {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
 }
