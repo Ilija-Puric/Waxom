@@ -8,9 +8,8 @@
   top: 0;
   left: 0;
   z-index: 10;
-
-  // TEMPORARY
-  position: absolute;
+  transition: background-color 0.2s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 .navigation__list,
@@ -25,6 +24,7 @@
   padding-bottom: 40px;
   @extend .container;
   justify-content: space-between;
+  transition: padding 0.2s ease;
 }
 
 .navigation__items,
@@ -126,5 +126,12 @@
   div:nth-child(1),
   div:nth-child(3) {
     transform: scaleX(0.5);
+  }
+}
+
+.not-top {
+  background-color: $main-dark;
+  .navigation__list {
+    padding: 20px 40px;
   }
 }

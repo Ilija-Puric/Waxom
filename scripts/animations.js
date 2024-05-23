@@ -6,6 +6,35 @@ gsap.registerPlugin(ScrollTrigger);
 const hamburger = document.querySelector(".js-hamburger");
 const drawer = document.querySelector(".js-drawer");
 
+const handlePageLoad = () => {
+  document.body.classList.add("disable-scroll");
+  document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+      const tl = gsap.timeline({
+        onComplete: () => {
+          document.body.classList.remove("disable-scroll");
+        },
+      });
+      tl.to(".progress", {
+        duration: 1,
+        width: "100%",
+        ease: "power1.inOut",
+      });
+      tl.to(".progress", {
+        duration: 1,
+        height: "100%",
+        width: "100%",
+        ease: "power1.inOut",
+      });
+      tl.to(".page__loader", {
+        yPercent: -100,
+        backgroundColor: "transparent",
+      });
+    },
+    false
+  );
+};
 const handleDrawer = () => {
   const tl = gsap.timeline({});
   gsap.set(".navigation__drawer .navigation__item", {
@@ -30,7 +59,11 @@ const handleDrawer = () => {
       tl.reverse();
     }
   };
+  const navItems = document.querySelectorAll(".navigation__drawer .navigation__item");
   hamburger.addEventListener("click", menuToggle);
+  navItems.forEach((item) => {
+    item.addEventListener("click", menuToggle);
+  });
 };
 const handleServices = () => {
   gsap.from(".services__card", {
@@ -206,7 +239,6 @@ const handleSponsors = () => {
     },
   });
 };
-
 const handleFooter = () => {
   const tl = gsap.timeline({
     scrollTrigger: {
@@ -223,7 +255,6 @@ const handleFooter = () => {
     stagger: 0.3,
   }).from(".footer__text", { opacity: 0, autoAlpha: 0, y: 20 });
 };
-
 const handleSmoothScroll = () => {
   const lenis = new Lenis();
   function raf(time) {
@@ -233,37 +264,30 @@ const handleSmoothScroll = () => {
   requestAnimationFrame(raf);
 };
 
-const handlePageLoad = () => {
-  document.body.classList.add("disable-scroll");
-  document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-      const tl = gsap.timeline({
-        onComplete: () => {
-          document.body.classList.remove("disable-scroll");
-        },
-      });
-      tl.to(".progress", {
-        duration: 1,
-        width: "100%",
-        ease: "power1.inOut",
-      });
-      tl.to(".progress", {
-        duration: 1,
-        height: "100%",
-        width: "100%",
-        ease: "power1.inOut",
-      });
-      tl.to(".page__loader", {
-        yPercent: -100,
-        backgroundColor: "transparent",
-      });
-    },
-    false
-  );
+const handleHeaderScroll = () => {
+  const header = document.querySelector(".navigation");
+  let prevPosY = window.scrollY;
+  if (window.scrollY > 10) {
+    header.classList.add("not-top");
+  }
+  addEventListener("scroll", () => {
+    const posY = window.scrollY;
+    if (posY < 10) {
+      header.classList.remove("not-top");
+    } else {
+      header.classList.add("not-top");
+    }
+    if (posY <= prevPosY || posY <= 0) {
+      header.classList.remove("hide");
+    } else {
+      header.classList.add("hide");
+    }
+    prevPosY = posY;
+  });
 };
 
 export const setAnimations = () => {
+  handlePageLoad();
   handleDrawer();
   handleServices();
   handleAbout();
@@ -275,5 +299,5 @@ export const setAnimations = () => {
   handleSponsors();
   handleFooter();
   handleSmoothScroll();
-  handlePageLoad();
+  handleHeaderScroll();
 };
