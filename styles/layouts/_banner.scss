@@ -3,13 +3,13 @@
   width: 100%;
   margin-bottom: 81px;
   background: $gradient;
-  display: flex;
   @extend .container;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-
+  position: relative;
+  z-index: 5;
   .banner__title {
     font-family: "Raleway";
     font-size: 28px;

@@ -117,3 +117,8 @@
     color: $main-light;
   }
 }
+
+.overflow-hide {
+  width: fit-content;
+  overflow: hidden;
+}
