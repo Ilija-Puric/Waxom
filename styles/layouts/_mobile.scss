@@ -3,6 +3,30 @@
   align-items: center;
   justify-content: center;
   @extend .container;
+
+  li img {
+    width: 30px;
+    height: 30px;
+  }
+  @include mq($tablet) {
+    flex-direction: column-reverse;
+
+    .mobile__text {
+      margin-bottom: 20px;
+    }
+    .mobile__list {
+      padding-left: 0;
+    }
+    .mobile__image {
+      margin-top: 40px;
+    }
+  }
+
+  @include mq($phone) {
+    .mobile__list li {
+      gap: 10px;
+    }
+  }
 }
 
 .mobile__title {

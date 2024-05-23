@@ -4,10 +4,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   @extend .container;
 
   .footer__section {
     display: flex;
+    flex-wrap: wrap;
     gap: 26px;
     .footer__text:last-child {
       &::after {
@@ -21,6 +23,7 @@
     font-family: "Montserrat";
     font-weight: 500;
     position: relative;
+    @extend .text-xs;
     &::after {
       content: "";
       position: absolute;
@@ -38,6 +41,23 @@
     transition: color 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
     @include hover {
       color: $main-light;
+    }
+  }
+
+  @include mq($lap-small) {
+    height: fit-content;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    gap: 5px;
+
+    .footer__section {
+      gap: 8px;
+
+      .footer__text {
+        &::after {
+          display: none;
+        }
+      }
     }
   }
 }

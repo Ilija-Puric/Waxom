@@ -27,7 +27,19 @@ export const initilizeSwiper = () => {
       prevEl: ".swiper-button-prev",
     },
     allowTouchMove: false,
-    slidesPerView: 3,
-    spaceBetween: 30,
+    breakpoints: {
+      280: {
+        slidesPerView: 1,
+        spaceBetween: 30,
+      },
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+      1280: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+    },
   });
 };

@@ -2,12 +2,11 @@
   display: flex;
   gap: 30px;
   @extend .container;
-  height: 508px;
   justify-content: center;
   align-items: flex-start;
   background-color: $footer-light;
   padding-top: 80px;
-
+  padding-bottom: 80px;
   .logo {
     margin-bottom: 30px;
   }
@@ -67,6 +66,24 @@
       width: 131px;
       height: 98px;
       object-fit: cover;
+    }
+  }
+
+  @include mq($lap-small) {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    .read-more__post,
+    .read-more__content {
+      width: 100%;
+    }
+    .logo {
+      margin-bottom: 15px;
+    }
+    .read-more__link {
+      margin-top: 18px;
     }
   }
 }

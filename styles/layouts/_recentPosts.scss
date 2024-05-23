@@ -131,4 +131,18 @@
       }
     }
   }
+
+  @include mq($phone) {
+    .swiper-slide-active {
+      .item__image {
+        filter: brightness(0.5);
+      }
+      .item__wrapper {
+        background-color: #362f2d;
+        .item__category {
+          color: $white;
+        }
+      }
+    }
+  }
 }

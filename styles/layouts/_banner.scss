@@ -8,6 +8,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.banner--sm {
+  @include mq($tablet) {
+    height: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    gap: 20px;
+  }
 }
 
 .banner__title {
@@ -17,6 +27,9 @@
   span {
     color: $main-light;
   }
+  @include mq($tablet) {
+    font-size: 24px;
+  }
 }
 
 .banner__text {
@@ -24,4 +37,10 @@
   color: #615855;
   font-weight: 500;
   font-size: 18px;
+  @include mq($tablet) {
+    font-size: 16px;
+  }
+  @include mq($phone) {
+    font-size: 14px;
+  }
 }

@@ -4,11 +4,18 @@
 .container {
   padding-left: 375px;
   padding-right: 375px;
-  @include mq(1750) {
+  @include mq($desktop-lg) {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+  @include mq($menuBreakpoint) {
     padding-left: 100px;
     padding-right: 100px;
   }
-
+  @include mq($lap-small) {
+    padding-left: 75px;
+    padding-right: 75px;
+  }
   @include mq($tablet) {
     padding-left: 40px;
     padding-right: 40px;
@@ -38,9 +45,10 @@
   font-family: "Montserrat";
   margin-bottom: 40px;
   color: #8c8c8c;
-  @extend .text-sm;
-  width: 757px;
+  width: fit-content;
+  max-width: 757px;
   text-align: center;
+  @extend .text-sm;
 }
 
 .button--main {
@@ -68,6 +76,11 @@
   grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
   gap: 20px;
   margin-bottom: 40px;
+
+  @include mq($phone) {
+    grid-template-columns: 1fr;
+  }
+
   .item__image {
     width: 100%;
     height: 237px;

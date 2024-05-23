@@ -1,3 +1,5 @@
+@import "breakpoints";
+
 .text-xxl {
   font-size: 52px;
 }
@@ -16,11 +18,151 @@
 
 .text-sm {
   font-size: 16px;
+  line-height: 28px;
 }
 
 .text-xs {
   font-size: 14px;
+  line-height: 24px;
 }
+
 .text-xxs {
   font-size: 12px;
+  line-height: 20px;
+}
+
+/* Breakpoints for laptops and small desktops */
+@include mq($lap-small, max, width) {
+  .text-xxl {
+    font-size: 48px;
+  }
+
+  .text-xl {
+    font-size: 44px;
+  }
+
+  .text-lg {
+    font-size: 28px;
+  }
+
+  .text-md {
+    font-size: 20px;
+  }
+
+  .text-sm {
+    font-size: 14px;
+    line-height: 26px;
+  }
+
+  .text-xs {
+    font-size: 13px;
+    line-height: 23px;
+  }
+
+  .text-xxs {
+    font-size: 11px;
+    line-height: 19px;
+  }
+}
+
+/* Breakpoints for phones */
+@include mq($phone, max, width) {
+  .text-xxl {
+    font-size: 44px;
+  }
+
+  .text-xl {
+    font-size: 40px;
+  }
+
+  .text-lg {
+    font-size: 26px;
+  }
+
+  .text-md {
+    font-size: 18px;
+  }
+
+  .text-sm {
+    font-size: 13px;
+    line-height: 24px;
+  }
+
+  .text-xs {
+    font-size: 12px;
+    line-height: 22px;
+  }
+
+  .text-xxs {
+    font-size: 10px;
+    line-height: 18px;
+  }
+}
+
+/* Breakpoints for small phones */
+@include mq($smallPhone, max, width) {
+  .text-xxl {
+    font-size: 40px;
+  }
+
+  .text-xl {
+    font-size: 36px;
+  }
+
+  .text-lg {
+    font-size: 24px;
+  }
+
+  .text-md {
+    font-size: 16px;
+  }
+
+  .text-sm {
+    font-size: 12px;
+    line-height: 22px;
+  }
+
+  .text-xs {
+    font-size: 10px;
+    line-height: 20px;
+  }
+
+  .text-xxs {
+    font-size: 8px;
+    line-height: 16px;
+  }
+}
+
+/* Breakpoints for large desktops */
+@include mq($menuBreakpoint, min, width) {
+  .text-xxl {
+    font-size: 56px;
+  }
+
+  .text-xl {
+    font-size: 52px;
+  }
+
+  .text-lg {
+    font-size: 34px;
+  }
+
+  .text-md {
+    font-size: 26px;
+  }
+
+  .text-sm {
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  .text-xs {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .text-xxs {
+    font-size: 14px;
+    line-height: 22px;
+  }
 }
