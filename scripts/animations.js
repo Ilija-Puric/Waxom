@@ -191,9 +191,8 @@ const handlePosts = () => {
     },
   });
   tl.from(".posts .section-title,.posts .section-subtitle", {
-    y: -20,
+    y: 50,
     duration: 0.25,
-    stagger: 0.1,
   }).from(".posts .swiper-wrapper", {
     yPercent: 100,
   });

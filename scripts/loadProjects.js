@@ -1,5 +1,14 @@
 import { projects } from "./data";
 
+const camelCase = (str) => {
+  return str
+    .split(" ")
+    .map((word, index) =>
+      index === 0 ? word.toLowerCase() : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+    )
+    .join("");
+};
+
 export const loadProjects = () => {
   const projectsList = document.querySelector(".projects__items");
   const loadMoreBtn = document.querySelector("#load-btn");
@@ -50,17 +59,6 @@ export const loadProjects = () => {
   //Handle Search
   const radioBtns = document.querySelectorAll("input[type='radio'");
   console.log(radioBtns);
-
-  function camelCase(str) {
-    return str
-      .split(" ")
-      .map((word, index) =>
-        index === 0
-          ? word.toLowerCase()
-          : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-      )
-      .join("");
-  }
 
   radioBtns.forEach((radioBtn) => {
     radioBtn.addEventListener("click", (e) => {
