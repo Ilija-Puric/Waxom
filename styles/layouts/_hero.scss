@@ -1,10 +1,8 @@
 .hero,
 .hero__wrapper,
-.hero__title {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.hero__title,
+.swiper-slide {
+  @extend .flex-column-center;
 }
 
 .hero,
@@ -19,14 +17,10 @@
 }
 .swiper-slide {
   display: flex !important;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .hero__image {
-  width: 100%;
-  height: 100%;
+  @extend .full-w-h;
   position: absolute;
   top: 0;
   left: 0;
@@ -65,17 +59,21 @@
 }
 
 .hero__subtitle {
+  @extend .text-sm;
   font-family: "Montserrat";
   margin-bottom: 50px;
   width: 100%;
   text-align: center;
   max-width: 562px;
-  @extend .text-sm;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
   color: #d3c1ad !important;
+  transition: color 0.2s ease;
+  @include hover {
+    color: $main-dark !important;
+  }
 }
 
 .swiper-button-next {
@@ -101,28 +99,9 @@
   background: #aaaaab !important;
 }
 .swiper-pagination-bullet-active {
-  background: #555556 !important;
+  background: $grey-text !important;
   outline: 2px solid #d3c1ad;
 }
 .swiper-pagination {
   margin-bottom: 42px;
-}
-
-.page__loader {
-  background-color: $main-light;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 12;
-}
-
-.progress {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: $white;
-  height: 2px;
 }

@@ -1,11 +1,9 @@
 .footer {
+  @extend .container;
+  @extend .flex-row-space-between;
+  flex-wrap: wrap;
   height: 111px;
   background-color: $footer-dark;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  @extend .container;
 
   .footer__section {
     display: flex;
@@ -18,12 +16,12 @@
     }
   }
   .footer__text {
+    @extend .text-xs;
+    position: relative;
     height: fit-content;
-    color: #555555;
+    color: $grey-text;
     font-family: "Montserrat";
     font-weight: 500;
-    position: relative;
-    @extend .text-xs;
     &::after {
       content: "";
       position: absolute;
@@ -31,7 +29,7 @@
       top: 6px;
       height: 13px;
       width: 1px;
-      background-color: #252525;
+      background-color: $dark-black;
     }
     a {
       color: #959595;

@@ -5,7 +5,7 @@ import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
 
 export const initilizeSwiper = () => {
-  const swiperHero = new Swiper(".swiper", {
+  const swiperHero = new Swiper(".heroSwiper", {
     modules: [Navigation, Pagination],
     direction: "horizontal",
     loop: true,

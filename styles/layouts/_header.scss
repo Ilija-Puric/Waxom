@@ -20,9 +20,9 @@
 }
 
 .navigation__list {
+  @extend .container;
   padding-top: 40px;
   padding-bottom: 40px;
-  @extend .container;
   justify-content: space-between;
   transition: padding 0.2s ease;
 }
@@ -42,10 +42,10 @@
 }
 .navigation__items {
   .navigation__item {
+    @extend .text-xs;
     font-family: "Montserrat";
     font-weight: 500;
     color: $white;
-    @extend .text-xs;
     transition: color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     @include hover {
       color: $main-light;
@@ -75,12 +75,11 @@
     gap: 20px;
     transform: translateX(-150%);
   }
-
   .navigation__item {
+    @extend .text-lg;
     font-family: "Montserrat";
     font-weight: 500;
     color: $white;
-    @extend .text-lg;
     width: fit-content;
     transition: color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     @include hover {
@@ -88,8 +87,7 @@
     }
   }
   .navigation__elements {
-    display: flex;
-    flex-direction: column;
+    @extend .flex-column;
     gap: 20px;
   }
 }

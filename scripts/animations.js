@@ -3,38 +3,9 @@ import Lenis from "lenis";
 import { ScrollTrigger } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger);
-const hamburger = document.querySelector(".js-hamburger");
-const drawer = document.querySelector(".js-drawer");
+const hamburger = document.querySelector(".hamburger");
+const drawer = document.querySelector(".drawer");
 
-const handlePageLoad = () => {
-  document.body.classList.add("disable-scroll");
-  document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-      const tl = gsap.timeline({
-        onComplete: () => {
-          document.body.classList.remove("disable-scroll");
-        },
-      });
-      tl.to(".progress", {
-        duration: 1,
-        width: "100%",
-        ease: "power1.inOut",
-      });
-      tl.to(".progress", {
-        duration: 1,
-        height: "100%",
-        width: "100%",
-        ease: "power1.inOut",
-      });
-      tl.to(".page__loader", {
-        yPercent: -100,
-        backgroundColor: "transparent",
-      });
-    },
-    false
-  );
-};
 const handleDrawer = () => {
   const tl = gsap.timeline({});
   gsap.set(".navigation__drawer .navigation__item", {
@@ -74,7 +45,7 @@ const handleServices = () => {
     stagger: 0.2,
     scrollTrigger: {
       trigger: ".services",
-      start: "top 50%",
+      start: "top center",
       end: "center center",
       scrub: 1,
     },
@@ -84,7 +55,7 @@ const handleAbout = () => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".about",
-      start: "top 50%",
+      start: "top center",
       end: "bottom 350px",
       scrub: 1,
     },
@@ -132,7 +103,7 @@ const handleProjects = () => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".projects",
-      start: "top 75%",
+      start: "top bottom",
       end: "center center",
       scrub: 1,
     },
@@ -145,14 +116,13 @@ const handleProjects = () => {
   }).from(".projects__chip", {
     opacity: 0,
     autoAlpha: 0,
-    stagger: 0.05,
   });
 };
 const handleVideo = () => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".video",
-      start: "top 50%",
+      start: "top center",
       end: "center center",
       scrub: 1,
     },
@@ -173,7 +143,7 @@ const handleMobile = () => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".mobile",
-      start: "top 50%",
+      start: "top center",
       end: "center center",
       scrub: 1,
     },
@@ -205,7 +175,7 @@ const handleData = () => {
     stagger: 0.1,
     scrollTrigger: {
       trigger: ".data",
-      start: "top 50%",
+      start: "top 65%",
       end: "center center",
       scrub: 1,
     },
@@ -215,7 +185,7 @@ const handlePosts = () => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".posts",
-      start: "top 50%",
+      start: "top center",
       end: "center center",
       scrub: 1,
     },
@@ -243,7 +213,7 @@ const handleFooter = () => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".read-more",
-      start: "top 50%",
+      start: "top center",
       end: "center center",
       scrub: 1,
     },
@@ -255,6 +225,7 @@ const handleFooter = () => {
     stagger: 0.3,
   }).from(".footer__text", { opacity: 0, autoAlpha: 0, y: 20 });
 };
+
 const handleSmoothScroll = () => {
   const lenis = new Lenis();
   function raf(time) {
@@ -286,8 +257,7 @@ const handleHeaderScroll = () => {
   });
 };
 
-export const setAnimations = () => {
-  handlePageLoad();
+const playAnimations = () => {
   handleDrawer();
   handleServices();
   handleAbout();
@@ -300,4 +270,35 @@ export const setAnimations = () => {
   handleFooter();
   handleSmoothScroll();
   handleHeaderScroll();
+};
+
+export const setAnimations = () => {
+  document.body.classList.add("disable-scroll");
+  document.addEventListener("DOMContentLoaded", () => {
+    const progress = document.querySelector(".progress");
+    const pageLoader = document.querySelector(".page__loader");
+    const tl = gsap.timeline({
+      onComplete: () => {
+        document.body.classList.remove("disable-scroll");
+        progress.remove();
+        pageLoader.remove();
+        playAnimations();
+      },
+    });
+    tl.to(progress, {
+      duration: 1,
+      width: "100%",
+      ease: "power1.inOut",
+    });
+    tl.to(progress, {
+      duration: 1,
+      height: "100%",
+      width: "100%",
+      ease: "power1.inOut",
+    });
+    tl.to(pageLoader, {
+      yPercent: -100,
+      backgroundColor: "transparent",
+    });
+  });
 };

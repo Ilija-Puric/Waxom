@@ -1,16 +1,12 @@
 .services {
+  @extend .container;
+  @extend .flex-row-space-between;
   padding-top: 92px;
   padding-bottom: 80px;
-  @extend .container;
-  display: flex;
   gap: 20px;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-
   .services__card {
-    display: flex;
-    flex-direction: column;
+    @extend .flex-column;
     justify-content: space-between;
     align-items: center;
     text-align: center;
@@ -18,24 +14,23 @@
 
     i {
       font-size: 43px;
-      color: #555555;
+      color: $grey-text;
       transition: color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
 
     .card__title {
+      @extend .text-md;
       font-family: "Raleway";
       font-weight: 600;
-      color: #555555;
-      @extend .text-md;
+      color: $grey-text;
       margin-top: 30px;
       margin-bottom: 10px;
       transition: color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
-
     .card__subtitle {
+      @extend .text-xs;
       font-family: "Montserrat";
       color: #8c8c8c;
-      @extend .text-xs;
     }
     .card__line {
       margin-top: 30px;

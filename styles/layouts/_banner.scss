@@ -1,12 +1,10 @@
 .banner {
+  @extend .container;
+  @extend .flex-row-space-between;
   height: 150px;
   width: 100%;
   margin-bottom: 81px;
   background: $gradient;
-  @extend .container;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
   position: relative;
   z-index: 5;

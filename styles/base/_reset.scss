@@ -1,3 +1,5 @@
+@import "colors";
+
 *,
 *::before,
 *::after {
@@ -44,4 +46,23 @@ a {
 
 html {
   scroll-behavior: smooth;
+}
+
+.page__loader {
+  background-color: $main-light;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 12;
+}
+
+.progress {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $white;
+  height: 2px;
 }

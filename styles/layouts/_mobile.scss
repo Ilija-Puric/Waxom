@@ -1,16 +1,12 @@
 .mobile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   @extend .container;
-
+  @extend .flex-row-center;
   li img {
     width: 30px;
     height: 30px;
   }
   @include mq($tablet) {
     flex-direction: column-reverse;
-
     .mobile__text {
       margin-bottom: 20px;
     }
@@ -30,10 +26,10 @@
 }
 
 .mobile__title {
+  @extend .text-lg;
   font-family: "Raleway";
   font-weight: 600;
-  @extend .text-lg;
-  color: #555555;
+  color: $grey-text;
   margin-bottom: 20px;
 }
 
@@ -42,16 +38,15 @@
 }
 .mobile__text,
 .mobile__list li {
+  @extend .text-sm;
   font-family: "Montserrat";
   color: #8c8c8c;
   font-weight: 500;
   text-align: left;
-  @extend .text-sm;
 }
 
 .mobile__list {
-  display: flex;
-  flex-direction: column;
+  @extend .flex-column;
   gap: 12px;
   li {
     display: flex;

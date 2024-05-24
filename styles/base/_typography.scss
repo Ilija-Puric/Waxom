@@ -65,7 +65,6 @@
   }
 }
 
-/* Breakpoints for phones */
 @include mq($phone, max, width) {
   .text-xxl {
     font-size: 44px;
@@ -99,7 +98,6 @@
   }
 }
 
-/* Breakpoints for small phones */
 @include mq($smallPhone, max, width) {
   .text-xxl {
     font-size: 40px;
@@ -133,7 +131,6 @@
   }
 }
 
-/* Breakpoints for large desktops */
 @include mq($menuBreakpoint, min, width) {
   .text-xxl {
     font-size: 56px;

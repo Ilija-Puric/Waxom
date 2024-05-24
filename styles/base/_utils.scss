@@ -38,7 +38,7 @@
   @extend .text-lg;
   margin-bottom: 20px;
   text-align: center;
-  color: #555555;
+  color: $grey-text;
 }
 
 .section-subtitle {
@@ -96,7 +96,6 @@
     color: $main-light;
     font-weight: 600;
     margin-bottom: 10px;
-    // margin-bottom: 20px; this should be the value...
     @extend .text-md;
   }
   .item__category {
@@ -128,4 +127,39 @@
   position: fixed;
   height: 100%;
   width: 100%;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-column-center {
+  @extend .flex-column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-row-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-row-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.full-w-h {
+  height: 100%;
+  width: 100%;
+}
+
+.center-absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

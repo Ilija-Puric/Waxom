@@ -5,7 +5,7 @@
     position: relative;
   }
   .item__title {
-    color: #555555;
+    color: $grey-text;
   }
   .item__category {
     color: #8c8c8c;
@@ -18,7 +18,6 @@
     font-family: "Montserrat";
     font-weight: 500;
     margin-top: 20px;
-    // margin-top: 30px; this should be the value
   }
   .item__date {
     position: absolute;
@@ -26,7 +25,6 @@
     left: 20px;
     color: $white;
     font-family: "Montserrat";
-
     .item__date-value {
       background-color: #363636;
       @extend .text-md;
@@ -35,20 +33,17 @@
       padding: 0 9px;
     }
     .item__date-month {
-      background-color: #252525;
+      @extend .text-xs;
+      background-color: $dark-black;
       font-weight: 300;
       padding: 0 9px;
       border-radius: 0 0 3px 3px;
-      @extend .text-xs;
     }
   }
-  .postsSwiper {
-    width: 100%;
-    height: fit-content;
-  }
+  .postsSwiper,
   .posts__item {
-    height: fit-content;
     width: 100%;
+    height: fit-content;
   }
   .item__image {
     width: 100%;
@@ -62,17 +57,16 @@
     width: 100%;
   }
   .item__title {
+    @extend .text-md;
     font-family: "Raleway";
     color: $main-light;
     font-weight: 600;
     margin-bottom: 10px;
-    // margin-bottom: 20px; this should be the value...
-    @extend .text-md;
   }
   .item__category {
+    @extend .text-xs;
     font-family: "Montserrat";
     font-weight: 500;
-    @extend .text-xs;
   }
   .swiper-slide {
     padding: 0;
@@ -82,9 +76,7 @@
     position: static;
   }
   .swiper-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @extend .flex-row-center;
     position: absolute;
     gap: 8px;
     width: 100%;

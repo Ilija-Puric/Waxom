@@ -1,9 +1,9 @@
 .read-more {
-  display: flex;
-  gap: 30px;
   @extend .container;
+  display: flex;
   justify-content: center;
   align-items: flex-start;
+  gap: 30px;
   background-color: $footer-light;
   padding-top: 80px;
   padding-bottom: 80px;
@@ -32,13 +32,13 @@
     margin-top: 36px;
   }
   .read-more__title {
+    @extend .text-md;
     position: relative;
     top: 15px;
     font-family: "Raleway";
     font-weight: 800;
     color: $white;
     margin-bottom: 40px;
-    @extend .text-md;
   }
   .read-more__date {
     @extend .text-xxs;
@@ -47,7 +47,7 @@
   .read-more__line {
     width: 100%;
     height: 1px;
-    background-color: #252525;
+    background-color: $dark-black;
     margin-top: 21px;
   }
   .read-more__post {

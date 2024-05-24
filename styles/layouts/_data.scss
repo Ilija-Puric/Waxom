@@ -22,10 +22,10 @@
     @extend .text-xl;
   }
   .item__text {
+    @extend .text-xs;
     color: $main-light;
     font-family: "Montserrat";
     font-weight: 500;
-    @extend .text-xs;
   }
   .item__line {
     width: 30px;
