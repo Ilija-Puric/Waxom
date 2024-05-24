@@ -58,7 +58,6 @@ export const loadProjects = () => {
 
   //Handle Search
   const radioBtns = document.querySelectorAll("input[type='radio'");
-  console.log(radioBtns);
 
   radioBtns.forEach((radioBtn) => {
     radioBtn.addEventListener("click", (e) => {
