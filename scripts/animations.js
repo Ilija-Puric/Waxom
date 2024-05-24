@@ -102,7 +102,7 @@ const handleAbout = () => {
 const handleProjects = () => {
   const tl = gsap.timeline({
     scrollTrigger: {
-      trigger: ".projects",
+      trigger: ".projects  .section-title",
       start: "top bottom",
       end: "center center",
       scrub: 1,
