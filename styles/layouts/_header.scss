@@ -40,12 +40,16 @@
     }
   }
 }
+
+.navigation__item {
+  font-family: "Montserrat";
+  font-weight: 500;
+  color: $white;
+}
+
 .navigation__items {
   .navigation__item {
     @extend .text-xs;
-    font-family: "Montserrat";
-    font-weight: 500;
-    color: $white;
     transition: color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     @include hover {
       color: $main-light;
@@ -64,10 +68,10 @@
   padding: 40px;
   background-color: $main-dark;
   @include mq(1220) {
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
@@ -77,9 +81,6 @@
   }
   .navigation__item {
     @extend .text-lg;
-    font-family: "Montserrat";
-    font-weight: 500;
-    color: $white;
     width: fit-content;
     transition: color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     @include hover {

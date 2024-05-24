@@ -25,18 +25,18 @@
     text-align: center;
     gap: 20px;
     padding: 0 30px;
+
+    .video__subtitle,
+    .video__time {
+      @extend .text-sm;
+      font-family: "Montserrat";
+    }
     .video__title {
       @extend .text-lg;
       font-family: "Raleway";
       font-weight: 700;
     }
-    .video__subtitle {
-      @extend .text-sm;
-      font-family: "Montserrat";
-    }
     .video__time {
-      @extend .text-xs;
-      font-family: "Montserrat";
       color: $main-light;
       font-weight: 500;
     }
@@ -49,8 +49,8 @@
     border-radius: 50%;
     margin-bottom: 44px;
     i {
-      color: $white;
       @extend .text-lg;
+      color: $white;
     }
     @include hover {
       cursor: pointer;

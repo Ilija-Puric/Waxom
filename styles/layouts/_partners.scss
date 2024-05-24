@@ -13,11 +13,10 @@
   background-repeat: no-repeat;
   background-size: cover;
   .slider {
+    @extend .full-w-h;
     margin: auto;
     overflow: hidden;
     position: relative;
-    height: 100%;
-    width: 100%;
     .slide-track {
       @extend .flex-row-center;
       gap: 90px;

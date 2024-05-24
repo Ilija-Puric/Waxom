@@ -31,7 +31,6 @@
   line-height: 20px;
 }
 
-/* Breakpoints for laptops and small desktops */
 @include mq($lap-small, max, width) {
   .text-xxl {
     font-size: 48px;

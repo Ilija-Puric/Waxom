@@ -15,26 +15,26 @@
     color: $main-light;
   }
 
-  .item__number {
+  .item__number,
+  .item__text {
     font-family: "Montserrat";
+  }
+  .item__number {
+    @extend .text-xl;
     color: $white;
     font-weight: 200;
-    @extend .text-xl;
   }
   .item__text {
     @extend .text-xs;
     color: $main-light;
-    font-family: "Montserrat";
     font-weight: 500;
   }
   .item__line {
     width: 30px;
     height: 2px;
     background-color: $white;
-    margin: 0 auto;
-    margin-top: 30px;
+    margin: 30px auto 0 auto;
   }
-
   @include mq($tablet) {
     flex-wrap: wrap;
     justify-content: center;

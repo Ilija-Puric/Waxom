@@ -78,7 +78,7 @@
 
 .swiper-button-next {
   right: 150px !important;
-  @include mq(1750) {
+  @include mq($lap-small) {
     right: 50px !important;
   }
   @include mq($tablet) {
@@ -87,7 +87,7 @@
 }
 .swiper-button-prev {
   left: 150px !important;
-  @include mq(1750) {
+  @include mq($lap-small) {
     left: 50px !important;
   }
   @include mq($tablet) {
